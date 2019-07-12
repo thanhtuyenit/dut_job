@@ -1,0 +1,94 @@
+<!-- header -->
+<div class="dut_header container-fluid">
+    <app-header></app-header>
+</div>
+<div class="container-fluid">
+    <section class="ftco-section bg-light pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-head text-center">
+                        <h2 style="color: #60B0E6;">TOP COMPANY</h2>
+                        <span>________</span><img src="./assets/img/faces/starr.svg" alt=""><span>________</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row d-flex pt-5">
+                <div class="col-md-3 d-flex ftco-animate p-5" *ngFor="let company of companyList">
+                    <div class="blog-entry align-self-stretch">
+                        <!-- <a [routerLink]="['/company/',companies.id]" class="block-20">
+                        </a> -->
+                        <div [style.background-image]="getBackground('https://localhost:44371/img/company/'+company.avatar)" [routerLink]="['/company/',company.id]" class="block-20">
+                            <!-- aaa -->
+                        </div>
+                        <div class="text mt-3">
+                            <h3><a class="heading" [routerLink]="['/company/',company.id]">{{company.name}}</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section bg-light ">
+        <div class="container">
+            <div class="row justify-content-center pt-5 pb-4">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 style="color: #60B0E6;" class="mb-4">NEW JOBS</h2>
+                    <span>________</span><img src="./assets/img/faces/starr.svg" alt=""><span>________</span>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-1 pb-3" *ngFor="let recentJob of jobList;">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+
+                    <div class=" col-md-12 job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                        <div class=" mb-4 mb-md-0 mr-5">
+                            <div class="job-post-item-header d-flex align-items-center">
+                                <a [routerLink]="['/companyjob-detail/',recentJob.id]" class="title mr-3 text-black h3">{{recentJob.title}}</a>
+                                <div class="badge-wrap">
+                                    <a *ngIf="recentJob.jobType.name === 'Full-time'" [routerLink]="['/searchjobbyname',recentJob.jobType.name]" class="bg-primary text-white badge py-2 px-3">{{recentJob.jobType.name}}</a>
+                                    <a *ngIf="recentJob.jobType.name === 'Senior'" [routerLink]="['/searchjobbyname',recentJob.jobType.name]" class="bg-success text-white badge py-2 px-3">{{recentJob.jobType.name}}</a>
+                                    <a *ngIf="recentJob.jobType.name === 'Junior'" [routerLink]="['/searchjobbyname',recentJob.jobType.name]" class="bg-secondary text-white badge py-2 px-3">{{recentJob.jobType.name}}</a>
+                                    <a *ngIf="recentJob.jobType.name === 'Fresher'" [routerLink]="['/searchjobbyname',recentJob.jobType.name]" class="bg-info text-white badge py-2 px-3">{{recentJob.jobType.name}}</a>
+                                    <a *ngIf="recentJob.jobType.name === 'Part-time'" [routerLink]="['/searchjobbyname',recentJob.jobType.name]" class="bg-info text-white badge py-2 px-3">{{recentJob.jobType.name}}</a>
+                                    <a *ngIf="recentJob.jobType.name === 'Internship'" [routerLink]="['/searchjobbyname',recentJob.jobType.name]"class="bg-info text-white badge py-2 px-3">{{recentJob.jobType.name}}</a>
+                                </div>
+                            </div>
+                            <div class="job-post-item-body d-block d-md-flex">
+                                <div class="mr-3"><span><i style="font-size:18px;margin-right: 8px;" class="material-icons">
+                                            my_location
+                                            </i></span> <span class="cname">{{recentJob.company.name}}</span></div>
+                                <div><span><i style="font-size:18px;margin-right: 8px;" class="material-icons">
+                                        monetization_on
+                                        </i></span> <span class="cname">{{recentJob.salary}}</span></div>
+                            </div>
+                            <div class="job_key_list">
+                                <div class="key_list">
+                                    <a href="#" *ngFor="let skill of recentJob.skills" [routerLink]="['/searchjobbyname',skill.name]"><span>{{skill.name}}</span></a>
+                                    <a href="#" [routerLink]="['/searchjobbyname',recentJob.faculty.name]"><span>{{recentJob.faculty.name}}</span></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div *ngIf="checker==0 || checker==2" class="ml-auto d-flex">
+                            <a [routerLink]="['/apply-new-job/',recentJob.id]" class="btn btn-danger py-2 mr-1">Apply now</a>
+                            <!-- <a href="#" class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+                                <i style="color: red" class="material-icons">
+                                        favorite_border
+                                        </i>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end -->
+
+    </section>
+</div>
+<div class="footter container-fluid ">
+    <app-footer-user></app-footer-user>
+</div>

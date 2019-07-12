@@ -1,0 +1,216 @@
+<div class="dut_header container-fluid">
+    <app-header></app-header>
+</div>
+<div class="dut_header container-fluid">
+    <!-- <div class="hero col-md-12" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start">
+                <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+                    <p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"></p>
+                    <h1 style="color: white; " class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Job is Waiting</span></h1>
+
+                    <div class="ftco-search">
+                        <div class="row">
+                            <div class="col-md-12 nav-link-wrap">
+                                <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <a style="color: white" class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Find a Company</a>
+
+                                    <a style="color: white" class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Find a Job</a>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 tab-wrap">
+
+                                <div style="background-color: white;width: 60%; height: 75%;" class="tab-content p-4" id="v-pills-tabContent">
+
+                                    <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+                                        <form #search1="ngForm" (ngSubmit)="SearchResult1(search.value)" class="example-form">
+                                            <mat-form-field class="example-full-width">
+                                                <input (click)="getSuggestCompany()" class="form-control" type="text" placeholder="Keyword Company..." aria-label="Assignee" matInput [formControl]="myControlcompany" [matAutocomplete]="companyname">
+                                                <mat-autocomplete #companyname="matAutocomplete" [displayWith]="displayFnbycompany">
+                                                    <mat-option (click)="getSelectedElementIdCompany(optioncompany.id)" *ngFor="let optioncompany of filteredOptionsCompany | async" [value]="optioncompany">
+                                                        {{optioncompany.name}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+                                        <form #skillName="ngForm" (ngSubmit)="SearchResult(inputnameKeyskill)" class="example-form">
+                                            <mat-form-field class="example-full-width">
+                                                <input (click)="getSuggestKeyskill()" class="form-control" type="text" placeholder="Keyword skill (Java, iOS...), Job Title,..." aria-label="Assignee" matInput [formControl]="myControlkeyskill" [matAutocomplete]="keyskillname" [(ngModel)]="inputnameKeyskill">
+                                                <mat-autocomplete #keyskillname="matAutocomplete" [displayWith]="displayFnbykeyskill">
+                                                    <mat-option (click)="getSelectedElementIdKeyskill(optionkeyskill.name)" *ngFor="let optionkeyskill of filteredOptionsKeyskill | async" [value]="optionkeyskill">
+                                                        {{optionkeyskill.name}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <section class="ftco-section bg-light ">
+        <!-- <div class="container">
+            <div class="row justify-content-center pt-5 pb-4">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 style="color: #60B0E6;" class="mb-4">All {{namejobsearch}} Jobs</h2>
+                    <span>________</span><img src="./assets/img/faces/starr.svg" alt=""><span>________</span>
+                </div>
+            </div>
+        </div> -->
+        <div *ngIf="totalResult == 0"  class="container pt-1 pb-3">
+            <div class="col-md-12 ftco-animate">
+                    <h2 style="color: red">Oops!</h2>
+                    <h3 style="color: black">The job you're looking for doesn't exist.</h3>
+                    <h3 style="color: black;">Here are some jobs for you.</h3>
+            </div>
+            
+            <div  class="container pt-1 pb-3" *ngFor="let objJob of jobRandom;">
+                    <div class="row">
+                        <div class="col-md-12 ftco-animate">
+        
+                            <div class=" col-md-12 job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                                <div class=" mb-4 mb-md-0 mr-5">
+                                    <div class="job-post-item-header d-flex align-items-center">
+                                        <a [routerLink]="['/companyjob-detail/',objJob.id]" class="title mr-3 text-black h3">{{objJob.title}}</a>
+                                        <div class="badge-wrap">
+                                            <a href="#" *ngIf="objJob.jobType.name === 'Full-time'" (click)="search(objJob.jobType.name)" class="bg-primary text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a href="#" *ngIf="objJob.jobType.name === 'Senior'" (click)="search(objJob.jobType.name)" class="bg-success text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a href="#" *ngIf="objJob.jobType.name === 'Junior'" (click)="search(objJob.jobType.name)" class="bg-secondary text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a href="#" *ngIf="objJob.jobType.name === 'Part-time'" (click)="search(objJob.jobType.name)" class="bg-info text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a href="#" *ngIf="objJob.jobType.name === 'Fresher'" (click)="search(objJob.jobType.name)" class="bg-info text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a href="#" *ngIf="objJob.jobType.name === 'Internship'" (click)="search(objJob.jobType.name)" class="bg-info text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="job-post-item-body d-block d-md-flex">
+                                        <div class="mr-3"><span><i style="font-size:18px;margin-right: 8px;" class="material-icons">
+                                                my_location
+                                                </i></span> <span class="cname">{{objJob.company.name}}</span></div>
+                                        <div><span><i style="font-size:18px;margin-right: 8px;" class="material-icons">
+                                            monetization_on
+                                            </i></span> <span class="cname">{{objJob.salary}}</span></div>
+                                    </div>
+                                    <div class="job_key_list">
+                                        <div class="key_list">
+                                            <!-- <a href="#" *ngFor="let keyskills of objJob.skills "><span>{{keyskills.name}}</span></a> -->
+                                            <a href="#" *ngFor="let skill of objJob.skills" (click)="search(skill.name)"><span>{{skill.name}}</span></a>
+                                            <!-- <a [routerLink]="['/searchjobbyname',objJob.jobType.name]"><span>{{objJob.jobType.name}}</span></a> -->
+                                            <a href="#" (click)="search(objJob.faculty.name)"><span>{{objJob.faculty.name}}</span></a>
+                                        </div>
+        
+                                    </div>
+                                </div>
+        
+                                <div *ngIf="checker==0 || checker==2" class="ml-auto d-flex">
+                                    <a [routerLink]="['/apply-new-job/',objJob.id]" class="btn btn-danger py-2 mr-1">Apply Now</a>
+                                    <!-- <a href="#" class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+                                        <i style="color: red" class="material-icons">
+                                            favorite_border
+                                            </i>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div> 
+        </div>
+        <div *ngIf="totalResult > 0" class="container pt-1 pb-3">
+                <div class="col-md-12 ftco-animate" style="font-size: 2.25rem; line-height: 1.4em; margin: 20px 0 10px;">
+                        {{totalResult}}&nbsp; <label style="color: red;font-size: 2.25rem; line-height: 1.4em; margin: 20px 0 10px;">{{namejobsearch}}</label>&nbsp;jobs for you!
+                </div>
+            <div  class="container pt-1 pb-3" *ngFor="let objJob of resultJobsSearch;">
+                    <div class="row">
+                        <div class="col-md-12 ftco-animate">
+                            <div class=" col-md-12 job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                                <div class=" mb-4 mb-md-0 mr-5">
+                                    <div class="job-post-item-header d-flex align-items-center">
+                                        <a [routerLink]="['/companyjob-detail/',objJob.id]" class="title mr-3 text-black h3">{{objJob.title}}</a>
+                                        <div class="badge-wrap">
+                                            <a *ngIf="objJob.jobType.name === 'Full-time'" (click)="search(objJob.jobType.name)" class="bg-primary text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a *ngIf="objJob.jobType.name === 'Senior'" (click)="search(objJob.jobType.name)" class="bg-success text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a *ngIf="objJob.jobType.name === 'Junior'" (click)="search(objJob.jobType.name)" class="bg-secondary text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a *ngIf="objJob.jobType.name === 'Part-time'" (click)="search(objJob.jobType.name)" class="bg-info text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a *ngIf="objJob.jobType.name === 'Fresher'" (click)="search(objJob.jobType.name)" class="bg-info text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                            <a *ngIf="objJob.jobType.name === 'Internship'" (click)="search(objJob.jobType.name)" class="bg-info text-white badge py-2 px-3">{{objJob.jobType.name}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="job-post-item-body d-block d-md-flex">
+                                        <div class="mr-3"><span><i style="font-size:18px;margin-right: 8px;" class="material-icons">
+                                                my_location
+                                                </i></span> <span class="cname">{{objJob.company.name}}</span></div>
+                                        <div><span><i style="font-size:18px;margin-right: 8px;" class="material-icons">
+                                            monetization_on
+                                            </i></span> <span class="cname">{{objJob.salary}}</span></div>
+                                    </div>
+                                    <div class="job_key_list">
+                                        <div class="key_list">
+                                            <!-- <a href="#" *ngFor="let keyskills of objJob.skills "><span>{{keyskills.name}}</span></a> -->
+                                            <a *ngFor="let skill of objJob.skills" (click)="search(skill.name)"><span>{{skill.name}}</span></a>
+                                            <!-- <a [routerLink]="['/searchjobbyname',objJob.jobType.name]"><span>{{objJob.jobType.name}}</span></a> -->
+                                            <a (click)="search(objJob.faculty.name)"><span>{{objJob.faculty.name}}</span></a>
+                                        </div>
+        
+                                    </div>
+                                </div>
+        
+                                <div *ngIf="checker==0 || checker==2" class="ml-auto d-flex">
+                                    <a [routerLink]="['/apply-new-job/',objJob.id]" class="btn btn-danger py-2 mr-1">Apply Now</a>
+                                    <!-- <a href="#" class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+                                        <i style="color: red" class="material-icons">
+                                            favorite_border
+                                            </i>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <button class="page-link" (click)="changePage(1)" [disabled]="condition.PageNumber === 1" [class.pag-disable]="condition.PageNumber === 1">First
+                                </button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link active" (click)="previousPage()" [disabled]="condition.PageNumber === 1" [class.pag-disable]="condition.PageNumber === 1">Previous
+                                        </button>
+                            </li>
+                            <!-- [class.page-item active]="index+1 === condition.PageNumber" -->
+                            <li class="page-item" *ngFor="let item of arrayOne(); let index = index">
+                                <button class="page-link" (click)="changePage(index+1)"
+                                        [disabled]="condition.PageNumber === index+1"
+                                        [class.pag-active]="condition.PageNumber === index+1">
+                                    {{index + 1}}
+                                </button>
+                            </li>
+                            <li class="page-item">
+                                <button class=" page-link" (click)="nextPage()" [disabled]="condition.PageNumber === totalPage" [class.pag-disable]="condition.PageNumber === totalPage">Next
+                                </button>
+                            </li>
+                            <li class="page-item">
+                                <button class="  page-link" (click)="changePage(totalPage)" [disabled]="condition.PageNumber === totalPage" [class.pag-disable]="condition.PageNumber === totalPage">Last
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+        </div>
+        
+        
+        <!-- end -->
+
+    </section>
+</div>
+<div class="footter container-fluid ">
+    <app-footer-user></app-footer-user>
+</div>

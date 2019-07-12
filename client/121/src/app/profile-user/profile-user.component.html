@@ -1,0 +1,230 @@
+
+    <app-header>
+    </app-header>
+    <!-- <div class="container-fluid"> -->
+    <!-- <app-navbar></app-navbar> -->
+    <!-- <div class="container pt-3"> -->
+        <div *ngIf="user != null" style="background-color: white" class="container">
+            <!-- <div class="card">
+                    <div class="card-body"> -->
+            <div>
+                <div class="card-title" style="text-align: center">
+                    <h2>Manage Profile</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="company_about mat-card-content">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
+                                    <a class="nav-item nav-link" id="nav-skill-tab" data-toggle="tab" href="#nav-skill" role="tab" aria-controls="nav-skill" aria-selected="false">Your Skills</a>
+                                    <a class="nav-item nav-link" id="nav-cv-tab" data-toggle="tab" href="#nav-cv" role="tab" aria-controls="nav-cv" aria-selected="false">Applied Jobs</a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">                                    
+                                    <div class="card card-profile pt-3">
+                                        <div class="card-body">                                            
+                                            <div class="profile">
+                                                <p class="card-description">
+                                                    YOUR PROFILE
+                                                </p>
+                                                <form name="form" #f="ngForm" (ngSubmit)="updateprofile(f.value)" novalidate>
+                                                    <label>Full Name</label>
+                                                    <input type="text" placeholder="" class="form-control" name="fullname" [(ngModel)]="user.fullname">
+                                                    <br>
+                                                    <label>Birthday</label>                                                    
+                                                    <input type="date" class="form-control" name="DOB" [ngModel]="(user.dob | date: 'yyyy-MM-dd')" (ngModelChange)="user.dob = $event">
+                                                    <br>
+                                                    <label>Address</label>
+                                                    <input type="text" placeholder="" class="form-control" name="address" [(ngModel)]="user.address">
+                                                    <br>
+                                                    <label>Phone</label>
+                                                    <input type="text" placeholder="" class="form-control" name="phone" [(ngModel)]="user.phone">
+                                                    <br>
+                                                    <label>Faculty</label>
+                                                    <select class="form-control" name="facultyid" [(ngModel)]="facultyCurrentUser.id" id="exampleSelect1">
+                                                        <option *ngFor="let faculty of facultyList" [value]="faculty.id" >
+                                                            <a>{{faculty.name}}</a> 
+                                                        </option>
+                                                    </select>
+                                                    <br>
+                                                    <!-- <label for="email">About Me</label>
+                                                    <textarea rows="10" cols="50" placeholder="Details and specific examples will make your application stronger..." class="cover-letter" maxlength="500" name="user[cover_letter]" id="user_cover_letter" [(ngModel)]="user.aboutMe"></textarea>
+                                                    <br>                                                    -->
+                                                    <!-- <br> -->
+                                                    <!-- <label>CV</label>
+                                                    <label class="form-control">
+                                                        <a (click)="openCV()" target="_blank" href="">
+                                                            View CV
+                                                        </a>
+                                                    </label> -->
+                                                    <br>
+                                                    <button type="submit" class="btn btn-info">Update</button>
+                                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="nav-skill" role="tabpanel" aria-labelledby="nav-skill-tab">
+                                    <div class="card card-profile pt-3">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <div class="card-title">
+                                                    <p class="card-description">
+                                                        YOUR SKILLS
+                                                    </p>
+                                                </div>
+                                                <table class="table table-striped table-hover pt-5">
+                                                    <thead class="text-primary">
+                                                        <th>#</th>
+                                                        <th>Skill</th>
+                                                        <th>Description</th>
+                                                        <th>Action</th>
+                                                    </thead>
+                                                    <tbody class="table_content">
+                                                        <tr *ngFor="let skill of user.skills; let i=index">
+                                                            <td scope="row">{{i+1}}</td>
+                                                            <td>{{skill.name}}</td>
+                                                            <td>{{skill.description}}</td>
+                                                            <td>
+                                                                <a style="color:azure; font-weight: 500" (click)="deleteKey(skill.id)">
+                                                                    <img src="./assets/img/faces/delete.png" alt="" width="20px"> 
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                            <div style="font-weight: normal;text-align: left;">
+                                                <label  style="color: rgb(253, 6, 6);">Don't miss your next job!</label>
+                                                
+                                                <label style="font-weight: initial; clear: both;">Choose your skill, then click "Get Jobs". We'll email you suitable new jobs, up to 1 email per day.</label>
+                                                <br>
+                                            </div>
+                                            <br>
+                                            <form name="form" #key="ngForm" (ngSubmit)="addKey(key.value)">
+                                               
+                                                <div class="form-group">
+                                                    <label style="float: left; clear: both;">Select your skill:</label>
+                                                    <select class="form-control" name="id" ngModel id="exampleSelect1">
+                                                        <option *ngFor="let keyskill of skillList" [value]="keyskill.id">
+                                                            <a>{{keyskill.name}}</a>  
+                                                        </option>
+                                                 </select>
+                                                </div>
+                                                <button style="float: left" class="btn btn-danger">Get Jobs</button>
+                                            </form>
+                                        </div>
+           
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="nav-cv" role="tabpanel" aria-labelledby="nav-cv-tab">
+                                    <div class="card card-profile pt-3">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table>
+                                                    <thead>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>                                                        
+                                                            <th>Your CV: </th>
+                                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                                            <td>                                                               
+                                                                <label>
+                                                                    <a style="color: black" (click)="openCV()" target="_blank" href="">
+                                                                        {{cvName}}&nbsp;&nbsp;<i class="fa fa-eye"></i>                                                                   
+                                                                    </a>
+                                                                </label>                                                                                                                                                                                              
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>New CV:</th>
+                                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                                            <th style="margin-left: 10px">
+                                                                <div>
+                                                                    <input #file type="file" multiple (change)="upload(file.files)" />
+                                                                    <br/>
+                                                                    <span style="font-weight:bold;color:green;" *ngIf="progress > 0 && progress < 100">
+                                                                    {{progress}}%
+                                                                    </span>
+                
+                                                                    <span style="font-weight:bold;color:green;" *ngIf="message">
+                                                                    {{message}}
+                                                                    </span>
+                                                                </div>         
+                                                            </th>
+                                                        </tr>                                                                                                                                                                    
+                                                    </tbody>
+                                                </table>                                                                                                                 
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <p class="card-description">
+                                                APPLIED JOBS
+                                            </p>
+                                            <table class="table table-striped table-hover">
+                                                    <thead class="text-primary">
+                                                        <th>#</th> 
+                                                        <th style="text-align: left;">Job Name</th>                                                      
+                                                        <th style="text-align: left;">Cover Letter</th>
+                                                        <th style="text-align: left;">Date Appied</th>
+                                                        <th style="text-align: left;">Action</th>
+                                                    </thead>
+                                                    <tbody class="">
+                                                        <tr *ngFor="let applyJob of appliedJobList; let i=index">
+                                                            <td scope="row">{{i+1}}</td>
+                                                            <td style="text-align: left;">{{applyJob.jobName}}</td>
+                                                            <td style="text-align: left;">{{applyJob.coverLetter}}</td>
+                                                            <td style="text-align: left;">{{applyJob.dateApplied | date:'MM-dd-yyyy'}}</td>
+                                                            <td style="text-align: center">     
+                                                                <label>
+                                                                    <a title="View detail this job!" style="color: black"  *ngIf="applyJob.acceptView" [routerLink]="['/companyjob-detail',applyJob.postID]" target="_blank" href="">
+                                                                        <i class="fa fa-eye"></i>                                                                   
+                                                                    </a>
+                                                                    <a title="Expire to view." class="isDisabled" style="color: black"  *ngIf="!applyJob.acceptView" href="#">
+                                                                        <i class="fa fa-eye-slash"></i>                                                                   
+                                                                    </a>
+                                                                </label>          
+                                                                <!-- <label >
+                                                                    <a  >
+                                                                        <img src="./assets/img/faces/view.png" > 
+                                                                        <i class="fa fa-eye"></i>
+                                                                    </a>
+                                                                </label>   -->
+                                                                <!-- <label *ngIf="!applyJob.acceptView">
+                                                                    <a style="color:azure; font-weight: 500">
+                                                                        <img src="./assets/img/faces/view.png" > 
+                                                                        <i class="fa fa-eye-slash"></i>
+                                                                    </a>
+                                                                </label>                                                                                                                                                                                  -->
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>                                                                               
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+       
+    <!-- </div> -->
+    <app-footer-user></app-footer-user>
+<!-- <div class="container-fluid">
+        
+</div> -->

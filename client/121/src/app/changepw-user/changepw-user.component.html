@@ -1,0 +1,75 @@
+<div>
+    <app-header>
+    </app-header>
+    <!-- <div class="main-panel"> -->
+
+    <div style="background-color: white" class="container pt-3">
+        <div class="container-fluid">
+            <div>
+                <div class="card-title" style="text-align: center">
+                    <h2>Change Your Password</h2>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-10 offset-md-1">
+                    <div class="card card-profile">
+                        <!-- <div class="card-avatar">
+                                        <a href="#pablo">
+                                            <img class="img" src="./assets/img/faces/berny.jpg" />
+                                        </a>
+                                    </div> -->
+                        <div class="card-body">
+                            <!-- <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                                        <h4 class="card-title">BERNY</h4>
+                                        <p class="card-description">
+                                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                        </p> -->
+                            <form #changepass="ngForm" (ngSubmit)="ChangePass(changepass.value)">
+
+                                <!-- </form> [mustMatch]="['password', 'confirmPassword']" novalidate> -->
+                                <div class="form-group">
+                                    <label for="currentpassword">Current Password</label>
+                                    <input type="password" placeholder="Enter Your Current Password" class="form-control" name="OldPassword" ngModel>
+                                    <!-- [ngClass]="{ 'is-invalid': changepass.submitted && currentpassword.invalid }" required minlength="6"> -->
+
+                                    <!-- <div *ngIf="changepass.submitted && currentpassword.invalid" class="invalid-feedback">
+                                                    <div *ngIf="currentpassword.errors.required">Password is required</div>
+                                                    <div *ngIf="currentpassword.errors.minlength">Password must be at least 6 characters</div>
+                                                </div> -->
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="newpassword">New Password</label>
+                                    <input type="password" placeholder="Enter Your New Password" class="form-control" name="NewPassword" ngModel>
+                                    <!-- [ngClass]="{ 'is-invalid': changepass.submitted && newpassword.invalid }" required minlength="6"> -->
+
+                                    <!-- <div *ngIf="changepass.submitted && newpassword.invalid" class="invalid-feedback">
+                                                    <div *ngIf="newpassword.errors.required">Password is required</div>
+                                                    <div *ngIf="newpassword.errors.minlength">Password must be at least 6 characters</div>
+                                                </div> -->
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="confirmpassword">Confirm Password</label>
+                                    <input type="password" placeholder="Enter Your Password" class="form-control" name="confirmpassword">
+                                    <!-- [ngClass]="{ 'is-invalid': changepass.submitted && confirmPassword.invalid }" required> -->
+                                    <!-- <div *ngIf="changepass.submitted && confirmPassword.invalid" class="invalid-feedback">
+                                                    <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+                                                    <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+                                                </div> -->
+                                </div>
+
+                                <button style="color:azure" type="submit" class="btn btn-info ">Update</button>
+                                <button [routerLink]="[ '/dashboard']" class="btn btn-danger ">cancel</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<app-footer-user></app-footer-user>
+<!-- </div> -->

@@ -1,0 +1,23 @@
+.table th {
+    color: black;
+    font-weight: 600;
+}
+
+.delete {
+    margin-left: 20px;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.pag-active {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.pag-disable{
+    display: none;
+}

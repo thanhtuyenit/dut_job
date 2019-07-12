@@ -1,0 +1,55 @@
+/* COntact */
+
+.address h4,
+.address p,
+.address h5 {
+    font-style: italic;
+}
+
+.contact form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact form input[type="text"],
+.contact textarea {
+    color: black;
+    border: 1px solid #CDCDCD;
+    padding: 15px;
+    margin-top: 10px;
+    width: 100%;
+    font-style: italic;
+}
+
+.contact textarea {
+    width: 100%;
+    margin-top: 24px;
+    min-height: 150px;
+    resize: none;
+}
+
+.contact form input[type="submit"] {
+    background: url("../../../assets/img/faces/submit.jpg") no-repeat 0 0;
+    width: 35px;
+    height: 35px;
+    display: block;
+    padding: 0 150px 0 50px;
+    float: right;
+    border: solid rgb(17, 185, 236);
+    margin-top: 24px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.contact form input[type="submit"]:hover {
+    background-color: aquamarine;
+}
+
+.footer {
+    background-color: aquamarine;
+    font-style: italic;
+}
+
+.footer h4 {
+    font-weight: bold;
+}

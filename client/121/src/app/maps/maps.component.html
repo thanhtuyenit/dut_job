@@ -1,0 +1,70 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <!-- <div class="card-header card-header-danger">
+                    <h4 class="card-title">Material Dashboard typography</h4>
+                    <p class="card-category">Created using Roboto Font Family</p>
+                </div> -->
+            <div class="card-body">
+                <div id="typography">
+                    <div class="card-title">
+                        <h2>List Faculty</h2>
+                        <!--     
+                            <a [routerLink]="['/add-Faculty']" role="button" style="font-weight: bold">
+                                <img src="./assets/img/faces/addbox2.svg" alt="" width="30px"> Add New Faculty</a> -->
+                    </div>
+                    <div class="row">
+                        <div class="card-body col-md-12">
+                            <div class="table-responsive  ">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            Index
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </thead>
+                                    <tbody class="table_content">
+                                        <tr>
+
+                                            <!-- <td scope="row">{{faculties.id}}</td>
+                                                <td>{{faculties.name}}</td>
+                                                <td>{{faculties.description}} </td> -->
+                                            <td>
+                                                <!-- get id of records and run event delete -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <a role="button" style="color:azure;font-weight: 500">
+                                                            <img src="./assets/img/faces/edit.png" alt="" width="20px"> </a>
+                                                        <a class="delete" style="color:azure; font-weight: 500" (click)="deleteFaculty(faculties.id)">
+                                                            <img src="./assets/img/faces/delete.png" alt="" width="20px"> </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                    </div>
+                                                </div>
+
+                                                <!-- get id of records and run event edit to move to edit-faculty component -->
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                <!-- <pagination-controls (pageChange)="p = $event">
+                                    </pagination-controls> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

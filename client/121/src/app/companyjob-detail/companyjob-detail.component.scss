@@ -1,0 +1,343 @@
+/* HEADER */
+
+.header-top {
+    background: #fff;
+    min-height: 20px;
+    position: fixed;
+    z-index: 9999;
+    clear: both;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.17);
+}
+
+.logo {
+    // float: left;
+    width: 100%;
+    padding-left: 100px;
+}
+
+.menu ul {
+    float: right;
+    margin: 30px 0 0 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    color: #60B0E6;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid #fff;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.menu ul li.active a,
+.menu ul li a:hover,
+#nav .current a {
+    border: 1px solid #60B0E6;
+}
+
+
+/* HEADER*/
+
+// slideshow
+.carousel-item img {
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    ;
+}
+
+// End Slide show
+// CompanyInfor
+.company_logo {
+    display: inline-block;
+}
+
+.company_info {
+    display: inline-block;
+}
+
+// .company_logo {
+//     padding-left: 15px;
+// }
+
+.company_logo img {
+    border: 1px solid rgb(44, 36, 36);
+    width: 100%;
+}
+
+// .company_info img {
+//     background-color: #60B0E6;
+//     border-radius: 50%;
+// }
+.company_info p {
+    font-weight: 600;
+}
+
+.company_button button {
+    font-family: "Roboto", sans-serif;
+    padding: 10px 15px;
+    margin: 20px 15px;
+    height: 50px;
+    width: 150px;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: #EA1E30;
+    border: 1px solid rgb(44, 36, 36);
+}
+
+//COmpany description
+.company_about {
+    margin-bottom: 15px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tabs {
+    padding-top: 30px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #60B0E6;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.company_panel_heading {
+    padding: 15px;
+    margin: 0 10px;
+}
+
+.company_feature {
+    margin-bottom: 15px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.paragraph {
+    margin: 0px 20px;
+}
+
+.company_about {
+    background-color: #fff;
+}
+
+//panel details css
+.review_title a {
+    font-size: 15px;
+    color: #60B0E6;
+}
+
+.panel_heading {
+    margin: 0px 20px;
+    padding-top: 10px;
+    font-style: inherit;
+}
+
+.panel_detail {
+    margin: 0px 20px;
+    padding-top: 10px;
+}
+
+.panel_detail h4,
+p {
+    padding-top: 10px;
+}
+
+.panel_detail h4 {
+    // text-decoration: underline;
+    font-weight: bold;
+}
+
+// panel company job
+.panel_job {
+    margin-bottom: 15px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel_job_heading {
+    padding: 10px 20px;
+}
+
+.panel_job_heading h4 {
+    // font-size: 25px;
+    margin-top: 10px;
+    color: #3d3d3d;
+    text-decoration: underline;
+    font-weight: bold;
+    // font-family: "Roboto Condensed", sans-serif;
+}
+
+.job_content {
+    display: flex;
+    z-index: 3;
+    position: relative;
+    border-top: 2px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    overflow: hidden;
+    font-weight: 400;
+    padding: 27px 0;
+    transition: all 0.25s ease;
+    margin-bottom: -2px;
+    box-sizing: border-box;
+}
+
+.logo_company {
+    margin: 4px 30px 0 25px;
+}
+
+.logo-wrapper img {
+    width: 85px;
+    height: 85px;
+    border: 1px solid rgb(44, 36, 36);
+}
+
+.job_description {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    padding-left: 15px;
+}
+
+.job_key_list {
+    margin-top: 12px;
+    width: 100%;
+    font-size: 0;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.key_list {
+    margin: 0;
+    display: inline-block;
+}
+
+.key_list a {
+    // margin: 0 10px 5px 0;
+    // padding: 10px 15px;
+    // background: transparent;
+    // border: 1px solid rgb(204, 169, 169);
+    // color: #60B0E6;
+    // font-size: 15px;
+    // font-weight: 500;
+    // line-height: 100%;
+    // display: inline-block;
+    margin: 0 10px 5px 0;
+    padding: 5px 5px;
+    background: transparent;
+    border: 1px solid #cca9a9;
+    color: #60B0E6;
+    font-size: 15px;
+    /* font-weight: 500; */
+    line-height: 100%;
+    display: inline-block;
+}
+
+.key_list a.active,
+.key_list a:hover {
+    background-color: rgb(188, 213, 231);
+}
+
+.description {
+    display: flex;
+}
+
+.details {
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.title {
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    line-height: 28px;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.infor {
+    margin-top: 10px;
+    color: #727272;
+    text-align: justify;
+    overflow: hidden;
+    width: 90%;
+    line-height: 1.3em;
+}
+
+//Reasons of working in company
+.reasons {
+    padding: 0 0 0 100px;
+    // margin: 10px 0;
+}
+
+.reasons_item {
+    padding-top: 10px;
+}
+
+.reasons_detail {
+    margin: 0px 25px;
+}
+
+.benefit {
+    margin-top: 30px;
+    padding-left: 30px;
+    color: #60B0E6;
+    font-weight: bold;
+}
+
+.apply a {
+    font-family: "Roboto", sans-serif;
+    padding: 10px 15px;
+    // margin: 20px 15px;
+    height: 50px;
+    width: 100%;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: #EA1E30;
+}
+
+.company_logo {
+    display: inline-block;
+}
+
+
+.company_logo img {
+    width: 100%;
+}

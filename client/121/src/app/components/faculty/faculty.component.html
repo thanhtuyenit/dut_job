@@ -1,0 +1,97 @@
+<!-- <div class="category container-fluid ">
+    <div class="category-info row pt-5">
+        <div class="category-item col-md-2 pt-5 ">
+            <h5>Category</h5>
+            <div class="category-menu">
+                <ul id="nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="category-list col-md-10 pt-5 ">
+            <div class="category-list-head text-left">
+                <h5>Welcome to UED Faculty</h5>
+            </div>
+            <div class="category-list-info row pt-5">
+                <div class="col-md-4 category-grids " *ngFor="let faculties of faculty ">
+                    <div class=" imgcategory card" style="width: 300px; height: 200px;background-color: rgb(200, 226, 231)">
+
+                        <img class="h-100 w-100" src="{{faculties.avatar}}" alt="">
+                        <a [routerLink]="['/company/faculty/',faculties.id]" class=" btn ">{{faculties.name}}</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- COntact -->
+<!-- <div id="section-6" class="contactus container-fluid py-5 ">
+    <div class="col-12 text-center">
+        <div class="contact-head">
+            <h2 style="color: #60B0E6;">CONTACT US</h2>
+            <span>________</span><img src="./assets/img/faces/starr.svg" alt=""><span>________</span>
+        </div>
+    </div>
+    <div class="container-fluid pt-5 contact-grids ">
+        <div class="row">
+            <div class="col-md-3 address text-left">
+                <h4><b>Get in touch</b></h4>
+                <p> <span>--<img src="./assets/img/faces/telephone.svg" alt="">--</span>&nbsp;&nbsp;(+84) 702 364 709 </p>
+                <p> <span>--<img src="./assets/img/faces/emailsvg.svg" alt="">--</span>&nbsp;&nbsp;Berny@enclave.vn</p>
+                <p> <span>--<img src="./assets/img/faces/location.svg" alt="">--</span>&nbsp;&nbsp;453-455 Hoang Dieu Street, Da Nang.</p>
+            </div>
+            <div class="col-md-5 contact text-center">
+                <form (ngSubmit)="onSubmitcontact()">
+                    <input type="text" placeholder="Your Email" onfocus="this.value = '';">
+                    <input type="text" placeholder="Your Telephone " onfocus="this.value = '';">
+                    <textarea placeholder="Enter Your Message" onfocus="this.value = '';"></textarea>
+                    <input type="submit" value="Send Message">
+
+                </form>
+            </div>
+            <div class="col-md-4 contact text-left">
+                <h4><b>About us</b></h4>
+                <p>As a recruitment consultant you can choose the path your career takes. Want to lead a team of consultants and see them beat targets every quarter? Want to develop your career internationally? Want to be the highest biller? Choose a career
+                    with PageGroup and you can. Plus you’ll receive the best rewards, training, support and development opportunities in the industry.</p>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- ////// -->
+<section class="ftco-section bg-light pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-head text-center">
+                    <h2 style="color: #60B0E6;">TOP FACULTY</h2>
+                    <span>________</span><img src="./assets/img/faces/starr.svg" alt=""><span>________</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row d-flex pt-5">
+            <div class="col-md-3 pt-3 d-flex ftco-animate" *ngFor="let faculty of facultyList">
+                <div class="blog-entry align-self-stretch">
+                    <!-- <a [routerLink]="['/company/faculty/',faculty.id]" class="block-20" style="background-image: url('{{faculty.avatar}}');">
+                    </a> -->
+                    <div [style.background-image]="getBackground('https://localhost:44371/img/faculty/'+faculty.avatar)" [routerLink]="['/company/faculty/',faculty.id]" class="block-20">
+                        <!-- aaa -->
+                    </div>
+                    <div class="text mt-3">
+                        <h3><a class="heading" [routerLink]="['/company/faculty/',faculty.id]">{{faculty.name}}</a></h3>
+                        <!-- <span>
+                            <a class="show" style="cursor: pointer;" (click)="showDetail()"> {{showinfo}}</a>
+                       </span> -->
+                        <!-- <p *ngIf="show">{{faculties.description}}</p> -->
+                        <p>{{faculty.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

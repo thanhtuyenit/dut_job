@@ -1,0 +1,240 @@
+<!-- Header -->
+<div class="dut_header container-fluid">
+    <app-header></app-header>
+</div>
+<!-- end container -->
+<!-- end header-->
+<!-- Company_headers -->
+<div *ngIf="job != null" class="company_header container pt-3">
+    <!-- <div class="row">
+        <div class=" company_logo col-md-3">
+            <div class="company_logo">
+                <img src="./assets/img/faces/Tech.jpg" alt="">
+            </div>
+        </div>
+        <div class="company_info col-md-6 text-left">
+            <h2 class="company_name">{{company.name}}</h2>
+            <p> <span>__<img src="./assets/img/faces/telephone.svg" alt="">__</span>&nbsp;&nbsp;(+84) {{company.phone}} </p>
+            <p> <span>__<img src="./assets/img/faces/emailsvg.svg" alt="">__</span>&nbsp;&nbsp;{{company.email}}</p>
+            <p> <span>__<img src="./assets/img/faces/location.svg" alt="">__</span>&nbsp;&nbsp;{{company.address}}</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="company_button">
+                <button type="submit">ADD REVIEW</button><br>
+                <button type="submit">FOLLOW</button>
+            </div>
+        </div>
+    </div> -->
+    <!-- End company_header -->
+    <!-- Company description -->
+    <div class="company_description container pt-3">
+        <div class="row company_container pt-4">
+            <!-- Company feature -->            
+            <div class="col-md-4 col-right">                
+                <div class="company_feature">                   
+                    <div class="company_panel_heading text-center">
+                        <div class="company_logo">
+                            <div class="">
+                                <img src="https://localhost:44371/img/company/{{company.avatar}}" alt="">
+                            </div>
+                        </div>
+                        <h3><b>{{company.name}}</b></h3>
+                        <label style="color: black">{{company.title}}</label>
+                        <!-- <span>________</span><img src="./assets/img/faces/mail.png" alt=""><span>________</span> -->
+                    </div>
+                    <div class="company_panel_body">
+                        <div class="company_feature_review">
+                            <div class="review_title text-center">
+                                <a [routerLink]="['/company/',company?.id]"><b>"View our company page"</b></a>
+                            </div>
+                            
+                            <div class="paragraph">
+                                <p> <span><img src="./assets/img/faces/emailsvg.svg" alt=""></span>&nbsp;&nbsp;{{company.email}}</p>
+                                <p> <span><img src="./assets/img/faces/location.svg" alt=""></span>&nbsp;&nbsp;{{company.address}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-8 col-left">
+                <div class="company_about">
+                    <nav>
+                        <div style="display: none" class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                            <a style="display: none;" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Policy</a>
+                            <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                            <div class="row">
+                                <div style="font-weight: bold" class="panel_heading col-md-12">
+                                    <h3><b>{{job.title}}</b></h3>
+                                </div>                                                              
+                            </div>
+                            <div class="panel_detail"> 
+                                    <div class="job_key_list">
+                                        <div class="key_list">
+                                            <a href="#" *ngFor="let skill of job.skills" [routerLink]="['/searchjobbyname',skill.name]">
+                                                <span>{{skill.name}}</span>
+                                            </a>
+                                            <!-- <a style="pointer-events: none" href="#">
+                                                <span>{{job.jobType.name}}</span>
+                                            </a> -->
+                                            <a [routerLink]="['/searchjobbyname',job.jobType.name]" href="#"><span>{{job.jobType.name}}</span></a>
+                                            <a [routerLink]="['/searchjobbyname',job.faculty.name]" href="#"><span>{{job.faculty.name}}</span></a>
+
+                                        </div>
+                                    </div>     
+                            </div>
+                            <div *ngIf="checker==0 || checker==2" class="panel_detail">
+                                <div class="apply col-md-12 text-center">
+                                    <a class="btn btn-danger" [routerLink]="['/apply-new-job/',job.id]">APPLY NOW</a>
+                                </div>
+                                <!-- <div class="">
+                                    <p style="font-weight: normal"> <span><img src="./assets/img/faces/telephone.svg" alt=""></span>&nbsp;&nbsp;{{job.salary}}</p>
+                                </div> -->
+                            </div>
+                            
+                            <div class="panel_detail">
+                                <h4><b>Reasons To Join Us</b></h4>
+                                <p style="white-space: pre-line">
+                                    {{job.reason}}
+                                </p>
+                            </div>
+                            <div class="panel_detail">
+                                <h4><b>Salary</b></h4>
+                                <p style="white-space: pre-line">
+                                    {{job.salary}}
+                                </p>
+                            </div>
+                            <div class="panel_detail">
+                                <h4><b>Description </b></h4>
+                                <p style="white-space: pre-line">
+                                    {{job.description}}
+                                </p>
+                            </div>
+                            
+                            <div class="panel_detail">
+                                <h4><b>Experience </b></h4>
+                                <p style="white-space: pre-line">
+                                    {{job.experience}}
+                                </p>
+                            </div>
+                            <!-- <div class="panel_detail">
+                                <h4><b>Job Type </b></h4>
+                                <p style="white-space: pre-line">
+                                    {{typejob.name}}
+                                </p>
+                            </div> -->
+                            
+                            
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <!-- <div class="panel_job"> -->
+                            <div class="panel_job_heading">
+                                <h4><b>WHY YOU'LL LOVE TO WORK HERE.</b></h4>
+                            </div>
+                            <div class="panel_body_job">
+
+                                <div class="benefit">
+                                    <h5><b>* BENEFITS : </b> </h5>
+                                </div>
+                                <ul class="reasons">
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">13 month salary per year</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Performance bonus</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Social – Health – Insurance paid fully</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Healthcare: Annual health check-up, Premium Health Insurance</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Annual leaves: 14 ~ 18 days</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Clubs program: Football, Badminton, Swimming, Tennis, Rock, Yoga…</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Training courses: Technical skills – Soft skills – English</span>
+                                    </li>
+                                </ul>
+                                <div class="reasons_detail">
+                                    <p>
+                                        People are extremely important to us and that’s why we have a clear vision: to make NashTech a great place to work in its sector. We pride ourselves on:
+                                    </p>
+                                </div>
+                                <ul class="reasons">
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Professional and Flexible Working Environment</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Great Teamwork</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">International Assignments</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">  WeCare - WeShare - WeDare - WeInnovate Engagement Program</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- </div> -->
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                    </div>
+                </div>
+                <!-- pannel job -->
+                <div *ngIf="allJobByCompanyID?.length > 1" class="panel_job">
+                    <div class="panel_job_heading">
+                        <h4><b>JOBS</b></h4>
+                    </div>
+                    <div class="panel_body_job">
+                        <div *ngFor="let objJob of allJobByCompanyID" >
+                            <div *ngIf="job.id != objJob.id" class="job_content"  >
+                                    <div class="logo_company">
+                                        <div class="logo-wrapper">
+                                            <!-- (click)="load()" -->
+                                            <a [routerLink]="['/companyjob-detail',objJob.id]">
+                                                <img src="https://localhost:44371/img/company/{{company.avatar}}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="job.id != objJob.id"  class="job_description">
+                                        <div class="description">
+                                            <div class="details">
+                                                <h4 class="title"><a [routerLink]="['/companyjob-detail',objJob.id]">{{objJob.title}}</a></h4>
+                                                <div class="infor">
+                                                    <b>Top reasons join with us</b>
+                                                    <p style="white-space: pre-line">{{objJob.reason}}</p>
+                                                </div>
+                                            </div>        
+                                        </div>
+                                        <div class="job_key_list">
+                                            <div class="key_list">
+                                                <a  href="#" *ngFor="let skill of objJob.skills" [routerLink]="['/searchjobbyname',skill.name]"><span>{{skill.name}}</span></a>
+                                                <a  href="#" [routerLink]="['/searchjobbyname',objJob.jobType.name]"><span>{{objJob.jobType.name}}</span></a>
+                                                <a  href="#" [routerLink]="['/searchjobbyname',objJob.faculty.name]"><span>{{objJob.faculty.name}}</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end pannel job -->
+            </div>
+            <!-- ENd description -->
+        </div>
+    </div>
+</div>
+<div class="footter container-fluid pt-5">
+    <app-footer-user></app-footer-user>
+</div>

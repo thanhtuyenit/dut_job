@@ -1,0 +1,14 @@
+.table thead {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.table td,
+th {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.table th {
+    color: black;
+    font-weight: 600;
+}

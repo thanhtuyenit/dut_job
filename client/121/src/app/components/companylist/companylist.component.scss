@@ -1,0 +1,141 @@
+// ======= list-faculty
+.category-list-head {
+    border-bottom: 1px solid rgba(24, 23, 23, 0.17);
+}
+
+.category-menu ul li {
+    margin: 5px;
+    border-bottom: 1px solid rgba(24, 23, 23, 0.17);
+    list-style-type: none;
+    padding-top: 20px;
+}
+
+.category-menu ul li.active a,
+.category-menu ul li a:hover,
+#nav .current a {
+    border: 1px solid #60B0E6;
+}
+
+.imgcategory a {
+    background-color: rgb(102, 128, 214);
+    color: aliceblue;
+}
+
+.imgcategory a:hover {
+    background-color: rgb(9, 57, 214);
+}
+
+
+/* ENd Slideshow */
+
+.hero {
+    background-image: url('../../../assets/img/faces/company1.jpg');
+    max-width: 100%;
+    height: 600px;
+    background-size: 100% 100%;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.block-20 {
+    // overflow: hidden;
+    // background-size: 100% 100%;
+    // background-repeat: no-repeat;
+    // background-position: center center;
+    // height: 250px;
+    // width: 250px;
+    // position: relative;
+    // display: block;
+    // background-image: url('../../../assets/img/faces/bk.jpg');
+    overflow: hidden;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    display: block;
+}
+
+#more {
+    display: none;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(39, 35, 35);
+}
+
+.job-post-item:hover,
+.job-post-item:focus {
+    -webkit-box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+}
+
+.heart {
+    background-image: url('../../../assets/img/faces/heart.png');
+}
+
+.job_key_list {
+    margin-top: 12px;
+    width: 100%;
+    font-size: 0;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.job-post-item-header a {
+    font-weight: 500;
+}
+
+.cname {
+    font-family: "Nunito Sans", Arial, sans-serif;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #999999;
+}
+
+.key_list {
+    margin: 0;
+    display: inline-block;
+}
+
+.key_list a {
+    // margin: 0 10px 0 0;
+    // padding: 10px 15px;
+    // background: transparent;
+    // border: 1px solid rgb(204, 169, 169);
+    // color: #60B0E6;
+    // font-size: 15px;
+    // font-weight: 500;
+    // line-height: 100%;
+    // display: inline-block;
+    margin: 0 10px 5px 0;
+    padding: 5px 5px;
+    background: transparent;
+    border: 1px solid #cca9a9;
+    color: #60B0E6;
+    font-size: 15px;
+    /* font-weight: 500; */
+    line-height: 100%;
+    display: inline-block;
+}
+
+.key_list a.active,
+.key_list a:hover {
+    background-color: rgb(188, 213, 231);
+}
+
+.title .active,
+.title :hover {
+    color: #60B0E6;
+}

@@ -1,0 +1,100 @@
+// ======= list-faculty
+.category-list-head {
+    border-bottom: 1px solid rgba(24, 23, 23, 0.17);
+}
+
+.category-menu ul li {
+    margin: 5px;
+    border-bottom: 1px solid rgba(24, 23, 23, 0.17);
+    list-style-type: none;
+    padding-top: 20px;
+}
+
+.category-menu ul li.active a,
+.category-menu ul li a:hover,
+#nav .current a {
+    border: 1px solid #60B0E6;
+}
+
+.imgcategory a {
+    background-color: rgb(102, 128, 214);
+    color: aliceblue;
+}
+
+.imgcategory a:hover {
+    background-color: rgb(9, 57, 214);
+}
+
+
+/* COntact */
+
+.address h4,
+.address p,
+.address h5 {
+    font-style: italic;
+}
+
+.contact form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact form input[type="text"],
+.contact textarea {
+    color: black;
+    border: 1px solid #CDCDCD;
+    padding: 15px;
+    margin-top: 10px;
+    width: 100%;
+    font-style: italic;
+}
+
+.contact textarea {
+    width: 100%;
+    margin-top: 24px;
+    min-height: 150px;
+    resize: none;
+}
+
+.contact form input[type="submit"] {
+    background: url("../../../assets/img/faces/submit.jpg") no-repeat 0 0;
+    width: 35px;
+    height: 35px;
+    display: block;
+    padding: 0 150px 0 50px;
+    float: right;
+    border: solid rgb(17, 185, 236);
+    margin-top: 24px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.contact form input[type="submit"]:hover {
+    background-color: aquamarine;
+}
+
+/////@at-root
+.block-20 {
+    overflow: hidden;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    display: block;
+}
+
+#more {
+    display: none;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(39, 35, 35);
+}
+
+.show {
+    margin-bottom: 50px;
+}

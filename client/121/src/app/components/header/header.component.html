@@ -1,0 +1,79 @@
+<!-- Header -->
+<div style="background-color: white" class="header-top container-fluid">
+    <div class="row">
+        <div class=" logo col-md-2">
+            <a [routerLink]="['/index']"><img src="./assets/img/faces/o.png" id="" class="w-75" alt=""></a>
+        </div>
+        <div class=" col-md-10">
+            <div class="menu">
+                <ul id="nav">
+                    <li><a [routerLink]="['/index']">Home</a></li>
+                    <li><a [routerLink]="['/aboutus']">About</a></li>
+                    <!-- <li><a [routerLink]="['/index']">Contact</a></li> -->
+
+                    <li *ngIf="checker=='3'">
+
+                        <li *ngIf="checker=='3'">
+                            <a class="dropdown-item" [routerLink]="['/post-job']">
+                                <!-- <i class="material-icons">work</i>  -->
+                                New Job</a>
+                        </li>
+                        <li *ngIf="checker=='0'"><a [routerLink]="['/login']">Login</a>
+
+                        </li>
+                        <li *ngIf="checker !='0'">
+                            <div *ngIf="checker == 1" class="btn-group  ">
+                                <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">person</i>{{userName}}
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" [routerLink]="['/profile_admin']"> <i class="material-icons">accessibility_new</i>Your Profile</a>
+                                    <a class="dropdown-item" [routerLink]="['/changepass_admin']"><i class="material-icons">verified_user</i>Change Password</a>
+                                    <a class="dropdown-item" [routerLink]="['/login']"><i class="material-icons">exit_to_app</i>Log Out</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="checker !='0'">
+                            <div *ngIf="checker == 2" class="btn-group  ">
+                                <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">person</i>{{userName}}
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" [routerLink]="['/profile-user']"> <i class="material-icons">accessibility_new</i>Your Profile</a>
+                                    <a class="dropdown-item" [routerLink]="['/changepass_user']"><i class="material-icons">verified_user</i>Change Password</a>
+                                    <a class="dropdown-item" [routerLink]="['/login']"><i class="material-icons">exit_to_app</i>Log Out</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="checker !='0'">
+                            <div *ngIf="checker == 3" class="btn-group  ">
+
+                                <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">person</i><span>  {{userName}} </span>
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" [routerLink]="['/companymanagealljob']">
+                                        <i class="material-icons">
+                                                assessment
+                                                </i> All Job </a>
+                                    <a class="dropdown-item" [routerLink]="['/manage-company']">
+                                        <i class="material-icons">supervised_user_circle</i> Company Profile</a>
+                                    <!-- <a class="dropdown-item" [routerLink]="['/profile-user']"> <i class="material-icons">accessibility_new</i> Account Profile</a> -->
+                                    <a class="dropdown-item" [routerLink]="['/changepass_user']"><i class="material-icons">verified_user</i> Change Password</a>
+
+
+
+
+                                    <a class="dropdown-item" [routerLink]="['/login']"><i class="material-icons">exit_to_app</i> Log Out</a>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="checker=='0'"><a [routerLink]="['/register']">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end header-->

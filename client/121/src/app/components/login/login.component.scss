@@ -1,0 +1,28 @@
+.Login {
+    background: #DE6262;
+    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+    background-size: cover;
+    bottom: 0;
+ min-height: 920px;
+ width: auto;
+}
+
+.loginform {
+    background-color: beige;
+    h2 {
+        font-style: italic;
+    }
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 17px;
+    color: rgb(22, 19, 19);
+}
+
+.form-group a {
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: underline;
+}

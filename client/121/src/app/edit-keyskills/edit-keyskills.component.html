@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="card">
+                    <!-- <div class="card-header card-header-danger">
+                        <h4 class="card-title">Material Dashboard typography</h4>
+                        <p class="card-category">Created using Roboto Font Family</p>
+                    </div> -->
+                    <div class="card-body">
+                        <div id="typography">
+                            <div class="card-title">
+                                <h2>Edit Skill</h2>
+                            </div>
+                            <div class="row">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <form>
+                                            <!-- get faculty id by two-way binding -->
+                                            <input type="hidden" class="form-control" name="id" id="id" placeholder="" [(ngModel)]="keyskill.id">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <!-- get faculty name by two-way binding -->
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="" [(ngModel)]="keyskill.name">
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                    <label for="name">Description</label>
+                                                    <!-- get faculty name by two-way binding -->
+                                                    <input type="text" class="form-control" name="description" id="description" placeholder="" [(ngModel)]="keyskill.description">
+                                                </div>
+                                            <!-- Event editfaculty to execute function in .ts -->
+                                            <button type="submit" (click)="editKeyskill()" class="btn btn-info">UPDATE</button>
+                                            <button [routerLink]="['/icons']" class="btn btn-danger">Cancel</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

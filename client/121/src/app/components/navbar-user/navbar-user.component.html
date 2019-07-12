@@ -1,0 +1,158 @@
+<!-- header -->
+<div class="dut_header container-fluid">
+    <app-header></app-header>
+</div>
+<!-- End header -->
+<!--Slideshow-->
+<!-- 
+<div id="section-1" class="slideshow container-fluid ">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+ 
+                <img src="./assets/img/faces/slide2.jpg" alt="Da Nang" width="100%" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/faces/slide1.jpg" alt="Ba na hills" width="100%" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/faces/marc.jpg" alt="Hoi An" width="100%" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/faces/marc.jpg" alt="Cu Lao Cham" width="100%" height="500">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div> -->
+<div class="dut_header container-fluid">
+    <div class="hero col-md-12" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start">
+                <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+                    <p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"></p>
+                    <h1 style="color: white; " class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Job is Waiting</span></h1>
+
+                    <div class="ftco-search">
+                        <div class="row">
+                            <div class="col-md-12 nav-link-wrap">
+                                <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <a style="color: white" class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Find a Company</a>
+
+                                    <a style="color: white" class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Find Jobs</a>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 tab-wrap">
+
+                                <div style="background-color: white;width: 60%; height: 75%;" class="tab-content p-4" id="v-pills-tabContent">
+
+                                    <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+                                        <form #search1="ngForm" (ngSubmit)="SearchResult1(search.value)" class="example-form">
+                                            <mat-form-field class="example-full-width">
+                                                <input (click)="getSuggestCompany()" class="form-control" type="text" placeholder="Keyword Company..." aria-label="Assignee" matInput [formControl]="myControlcompany" [matAutocomplete]="companyname">
+                                                <mat-autocomplete #companyname="matAutocomplete" [displayWith]="displayFnbycompany">
+                                                    <mat-option (click)="getSelectedElementIdCompany(optioncompany.id)" *ngFor="let optioncompany of filteredOptionsCompany | async" [value]="optioncompany">
+                                                        {{optioncompany.name}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+                                        <form #skillName="ngForm" (ngSubmit)="SearchResult(inputnameKeyskill)" class="example-form">
+                                            <mat-form-field class="example-full-width">
+                                                <input (click)="getSuggestKeyskill()" class="form-control" type="text" placeholder="Keyword skill (Java, iOS...), Job Title,..." aria-label="Assignee" matInput [formControl]="myControlkeyskill" [matAutocomplete]="keyskillname" [(ngModel)]="inputnameKeyskill">
+                                                <mat-autocomplete #keyskillname="matAutocomplete" [displayWith]="displayFnbykeyskill">
+                                                    <mat-option (click)="getSelectedElementIdKeyskill(optionkeyskill.name)" *ngFor="let optionkeyskill of filteredOptionsKeyskill | async" [value]="optionkeyskill">
+                                                        {{optionkeyskill.name}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="ftco-section services-section bg-light">
+        <div class="container">
+            <div class="row d-flex pt-5">
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block">
+                        <div class="icon">
+                            <span> <img src="./assets/img/faces/cv.png" alt="" width="30%"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading mb-3">Search Millions of Jobs</h3>
+                            <p>Typing some key word and see the result. The whole world about Jobs will be showed up in front of you.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block">
+                        <div class="icon">
+                            <span> <img src="./assets/img/faces/management.png" alt="" width="30%"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading mb-3">Easy To Manage Jobs</h3>
+                            <p>All post job will be saved into the storage. Make it clear and convenient to sum up.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block">
+                        <div class="icon">
+                            <span> <img src="./assets/img/faces/revenue.png" alt="" width="30%"></span>
+                        </div>
+                        <div class="media-body">
+                            <span><h3 class="heading mb-3">Top Careers</h3></span>
+                            <p>Contain all the newest trend and hotest job which need someone to come and get it.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block">
+                        <div class="icon">
+                            <span> <img src="./assets/img/faces/bar-chart.png" alt="" width="30%"></span>
+                        </div>
+                        <div class="media-body">
+                            <span> <h3 class="heading mb-3">Search Expert Candidates</h3></span>
+                            <p>Easily to find and get the best candidates who is avaiable with all the requirement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="faculty container-fluid">
+    <app-faculty></app-faculty>
+</div>
+<div class="container-fluid">
+    <app-recent-jobs></app-recent-jobs>
+</div>
+<div class="footter container-fluid ">
+    <app-footer-user></app-footer-user>
+</div>
+
+
+<!-- Slideshow -->

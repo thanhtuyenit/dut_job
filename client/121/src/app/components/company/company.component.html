@@ -1,0 +1,277 @@
+<!-- Header -->
+<div class="dut_header container-fluid">
+    <app-header></app-header>
+</div>
+<!-- end container -->
+<!-- end header-->
+
+<!-- End Slider -->
+<!-- Company_headers -->
+<div *ngIf="company != null" style="background-color: white;" class="company_header container pt-3">
+    <div id="section-1" class="slideshow container">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <!-- change link image to assets/images...... how to comment? -->
+                    <img src="./assets/img/sidebar-3.jpg" alt="" width="100%" height="500px">
+
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/sidebar-1.jpg" alt="" width="100%" height="500px">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/sidebar-2.jpg" alt="" width="100%" height="500px">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/sidebar-4.jpg" alt="" width="100%" height="500px">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+            <!-- <div class="search_field_wrapper container-fluid pt-5 text-center ">
+          <div class="col-12 text-center">
+              <div class="aboutHead">
+                  <h2 style="color: #60B0E6;">Find Dream Job <b>Get Your Success</b></h2>
+                  <span>________</span><img src="./assets/img/faces/about-img.png" alt=""><span>________</span>
+              </div>
+          </div>
+          <div class="form_search">
+              <form>
+                  <input type="text" name="firstname" placeholder="Search key skill">
+                  <button type="submit">SEARCH</button>
+              </form>
+
+          </div>
+      </div> -->
+        </div>
+    </div>
+    <div class=" row pt-5">
+        <div class="col-md-12 company_header ">
+            <div class="row">
+                <div style="padding-bottom: 10px" class="company_logo col-md-3">
+                    <div class="company_logo">
+                        <img src="https://localhost:44371/img/company/{{company.avatar}}" alt="{{company.avatar}}">
+                    </div>
+                </div>
+                <div class="company_info col-md-9 text-left">
+                    <h2 class="company_name"><b>{{company.name}}</b></h2>
+                    <p style="font-weight: normal"> <span><img src="./assets/img/faces/telephone.svg" alt=""></span>&nbsp;&nbsp;{{company.phone}}</p>
+                    <p style="font-weight: normal"> <span><img src="./assets/img/faces/emailsvg.svg" alt=""></span>&nbsp;&nbsp;{{company.username}}</p>
+                    <p style="font-weight: normal"> <span><img src="./assets/img/faces/location.svg" alt=""></span>&nbsp;&nbsp;{{company.address}}</p>
+                </div>
+                <!-- <div class="col-md-3 text-center pt-5">
+                    <div style="float: left" class="company_button">
+                        <button type="submit">ADD REVIEW</button><br>
+                        <button type="submit">FOLLOW</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+    <!-- End company_header -->
+    <!-- Company description -->
+    <div class="company_description container pt-3">
+        <div class="row company_container pt-4">
+            <div class=" col-md-8 col-left">
+                <div class="company_about">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                            <a style="display: none;" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Review</a>
+                            <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="panel_heading">
+                                <h3><b>{{company.title}}</b></h3>
+                            </div>
+                            <div class="panel_detail">
+                                <!-- <h4><b>About {{company.name}}</b></h4> -->
+                                <p style="white-space: pre-line">
+                                    {{company.description}}
+                                </p>
+                                <div>
+                                    <div class="">
+                                        <h3><b>Our skills</b></h3>
+                                    </div>
+                                    <div class="job_key_list">
+                                        <div class="key_list">
+                                            <a href="#"  *ngFor="let skill of company.skills" [routerLink]="['/searchjobbyname',skill.name]">
+                                                <span >{{skill.name}}</span>
+                                            </a>
+                                            <a href="#" [routerLink]="['/searchjobbyname',company.faculty.name]">
+                                                <span >{{company.faculty.name}}</span>
+                                            </a>
+                                            <!-- <a style="pointer-events: none" href="#">
+                                                <span >{{skill.name}}</span>
+                                            </a> -->
+                                        </div>
+                                    </div>                 
+                            </div>
+                            </div>
+                            <div>
+                                <label></label>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <!-- <div class="panel_job"> -->
+                            <div class="panel_job_heading">
+                                <h4><b>WHY YOU'LL LOVE TO WORK HERE.</b></h4>
+                            </div>
+                            <div class="panel_body_job">
+
+                                <div class="benefit">
+                                    <h5><b>* BENEFITS : </b> </h5>
+                                </div>
+                                <ul class="reasons">
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">13 month salary per year</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Performance bonus</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Social – Health – Insurance paid fully</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Healthcare: Annual health check-up, Premium Health Insurance</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Annual leaves: 14 ~ 18 days</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Clubs program: Football, Badminton, Swimming, Tennis, Rock, Yoga…</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Training courses: Technical skills – Soft skills – English</span>
+                                    </li>
+                                </ul>
+                                <div class="reasons_detail">
+                                    <p>
+                                        People are extremely important to us and that’s why we have a clear vision: to make NashTech a great place to work in its sector. We pride ourselves on:
+                                    </p>
+                                </div>
+                                <ul class="reasons">
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Professional and Flexible Working Environment</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">Great Teamwork</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">International Assignments</span>
+                                    </li>
+                                    <li class="reasons_item">
+                                        <span class="reasons_content">  WeCare - WeShare - WeDare - WeInnovate Engagement Program</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- </div> -->
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                    </div>
+                </div>
+
+
+
+                <!-- pannel job -->
+                <div class="panel_job container">
+
+                    <div class="panel_job_heading text-center">
+                        <h4><b>JOBS</b></h4>
+                    </div>
+                    <div class="panel_body_job">
+                        <div *ngFor="let objJob of companyJobList" class="job_content">
+                            <div class="logo_company">
+                                <div class="logo-wrapper">
+                                    <!-- <a [routerLink]="['/companyjob-detail/',companyjobs.id]" ><img src="./assets/img/faces/Tech.jpg" alt=""></a> -->
+                                    <a [routerLink]="['/companyjob-detail',objJob.id]">
+                                        <img src="https://localhost:44371/img/company/{{company.avatar}}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="job_description">
+                                <div class="description">
+                                    <div class="details">
+                                        <h4 class="title"><a [routerLink]="['/companyjob-detail/',objJob.id]">{{objJob.title}}</a></h4>
+
+                                        <div class="infor">
+                                            <b>Top reasons join with us</b>
+                                            <p style="white-space: pre-line">{{objJob.reason}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="job_key_list">
+                                    <div class="key_list">
+                                        <a href="#" *ngFor="let skill of objJob.skills" [routerLink]="['/searchjobbyname',skill.name]"><span>{{skill.name}}</span></a>
+                                        <a href="#" [routerLink]="['/searchjobbyname',objJob.jobType.name]"><span>{{objJob.jobType.name}}</span></a>
+                                        <a href="#" [routerLink]="['/searchjobbyname',objJob.faculty.name]"><span>{{objJob.faculty.name}}</span></a>
+                                        <!-- <a href="#"><span>AngularJS</span></a>
+                                        <a href="#"><span>Angular 7</span></a> -->
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- end pannel job -->
+            </div>
+            <!-- ENd description -->
+            <!-- Company feature -->
+            <div class="col-md-4 col-right">
+                <div class="company_feature">
+                    <div class="company_panel_heading text-center">
+                        <h3><b>Feature Reviews</b></h3>
+                        <span>________</span><img src="./assets/img/faces/mail.png" alt=""><span>________</span>
+                    </div>
+                    <div class="company_panel_body">
+                        <div class="company_feature_review">
+                            <div class="review_title text-center ">
+                                <a href="#"><b>"Good Environment"</b></a>
+                            </div>
+                            <div class="paragraph">
+                                <p>
+                                    Professional and international environment. Everyone is friendly and active. They always ready to help you if you have problems.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="company_feature_review">
+                            <hr>
+                            <div class="review_title text-center ">
+                                <a href="#"><b>"High salary, good policy"</b></a>
+                            </div>
+                            <div class="paragraph">
+                                <p>
+                                    Professional and international environment. Everyone is friendly and active. They always ready to help you if you have problems.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<div class="footter container-fluid pt-5">
+    <app-footer-user></app-footer-user>
+</div>

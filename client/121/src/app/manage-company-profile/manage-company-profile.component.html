@@ -1,0 +1,173 @@
+<app-header>
+</app-header>
+
+
+<!-- <div class="container-fluid"> -->
+
+<!-- <app-navbar></app-navbar> -->
+
+<div *ngIf="company != null" style="background-color: white" class="container pt-3">
+    <!-- <div class="card">
+                    <div class="card-body"> -->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="company_about mat-card-content">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Company Information</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Company Skills</a>
+                        <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                        <div class="card card-profile pt-3">
+                            <div class="card-body">
+                                <div class="profile">
+                                    <!-- <p class="card-description">
+                                        CHANGE COMPANY INFORMATION
+                                    </p> -->
+                                    <form name="form" #f="ngForm" (ngSubmit)="editcompany(f.value)" novalidate>
+                                        <input type="text" class="form-control" style="display: none" name="id" id="id" placeholder="" [(ngModel)]="company.id">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="name">Email</label>
+                                                <input disabled type="text" class="form-control" name="username" id="username" placeholder="" [(ngModel)]="company.username">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="name">Company Name</label>
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="" [(ngModel)]="company.name">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="name">Faculty</label>
+                                                <!-- <input type="text" class="form-control" name="faculty" id="faculty" placeholder="" [(ngModel)]="company.faculty.name"> -->
+                                                <!-- <br> 
+                                                                    <label for="email"> Select your Faculty</label> -->
+                                                <select class="form-control" name="facultyID" [(ngModel)]="company.faculty.id" id="exampleSelect1">
+                                                    <option *ngFor="let faculty of facultyList" [value]="faculty.id" >
+                                                        <a>{{faculty.name}}</a> 
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            
+                                                <div class="col-md-4">
+                                                        <label for="name">Phone</label>
+                                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="" [(ngModel)]="company.phone">
+                                                        <!-- <br> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="name">Working Time</label>
+                                                    <!-- <input type="text" class="form-control" name="timeWorkFrom" id="timeWorkFrom" placeholder="" [(ngModel)]="company.timeWorkFrom"> -->
+                                                    <!-- <br> -->
+                                                    <select class="form-control" style="text-align: center" name="timeWorkFrom" id="timeWorkFrom" [(ngModel)]="company.timeWorkFrom">
+                                                        <option value='Monday-Friday' [selected]="'Monday-Friday' === 'company.timeWorkFrom'">Monday-Friday</option>
+                                                        <option value='Monday-Saturday' [selected]="'Monday-Saturday' === 'company.timeWorkFrom'">Monday-Saturday</option>
+                                                        <option value='Monday-Sunday' [selected]="'Monday-Sunday' === 'company.timeWorkFrom'">Monday-Sunday</option>
+                                                        <!-- <option value='Thursday' [selected]="'Thursday' === 'company.timeWorkFrom'">Thursday</option> -->
+                                                    </select>
+                                                </div>
+                                                
+                                                <div class="col-md-4">
+                                                    <label for="name">Company size:</label>
+                                                    
+                                                    <select class="form-control" style="text-align: center" name="employeeFrom" id="employeeFrom" [(ngModel)]="company.employeeFrom">
+                                                        <option value='Below 50' [selected]="'Below 50' === 'company.employeeFrom'">Below 50</option>
+                                                        <option value='51-100' [selected]="'51-100' === 'company.employeeFrom'">51-100</option>
+                                                        <option value='101-500' [selected]="'101-500' === 'company.employeeFrom'">101-500</option>
+                                                        <option value='501-1000' [selected]="'501-1000' === 'company.employeeFrom'">501-1000</option>
+                                                        <option value='Over 1000' [selected]="'Over 1000' === 'company.employeeFrom'">Over 1000</option>
+                                                        <!-- <option value='Thursday' [selected]="'Thursday' === 'company.timeWorkFrom'">Thursday</option> -->
+                                                    </select>
+                                                </div>
+                                               
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-md-12">
+                                                <label for="name">Address</label>
+                                                <input type="text" class="form-control" name="address" id="address" placeholder="" [(ngModel)]="company.address">
+                                                <!-- <br> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <!-- <label for="name">Email</label>
+                                                            <input type="text" class="form-control" name="email" id="email" placeholder="" [(ngModel)]="company.email">
+                                                            <br> -->
+
+
+                                       
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="email">About Company</label>
+                                                <textarea style="white-space: pre-line" class="form-control" rows="5" name="description" id="description" [(ngModel)]="company.description" placeholder="Details and specific examples will make your application stronger..." maxlength=""></textarea>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn  btn-info">Update</button>
+                                        <a [routerLink]="[ '/table-list']" class="btn btn-danger ">cancel</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="col-md-6 offset-md-3 card card-profile pt-3">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <!-- <div class="card-title">
+                                        <p class="card-description">
+                                            COMPANY SKILLS
+                                        </p>
+                                    </div> -->
+                                    <table class="table pt-5">
+                                        <thead class=" text-primary">
+                                            <th>#</th>
+                                            <th>Skill</th>
+                                            <th>Action</th>
+                                        </thead>
+                                        <tbody class="table_content">
+                                            <tr *ngFor="let companies of company.skills; let i=index">
+                                                <td scope="row">{{i+1}}</td>
+                                                <td>{{companies.name}}</td>
+                                                <td>
+                                                    <a style="color:azure; font-weight: 500" (click)="deleteKey(companies.id)">
+                                                        <img src="./assets/img/faces/delete.png" alt="" width="20px"> </a>
+                                                </td>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <form name="form" #key="ngForm" (ngSubmit)="addKey(key.value)">
+                                    <div class="form-group">
+                                        <label>Select Skill:</label>
+                                        <select class="form-control" name="id" ngModel id="exampleSelect1">
+                                            <option *ngFor="let keyskills of keyskill" [value]="keyskills.id" >
+                                                <a>{{keyskills.name}}</a>  
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <button style="float: left" class="btn  btn-info">Save</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<app-footer-user></app-footer-user>
+<!-- </div> -->
+
+<!-- </div>
+    </div> -->
+
+
+<!-- <div class="footter container-fluid pt-5"> -->

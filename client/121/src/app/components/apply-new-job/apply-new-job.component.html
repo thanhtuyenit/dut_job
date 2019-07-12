@@ -1,0 +1,186 @@
+<!-- Header -->
+<div class="dut_header container-fluid">
+    <app-header></app-header>
+</div>
+<!-- end container -->
+<!-- end header-->
+<!-- Company_headers -->
+<div *ngIf="job != null" class="company_header container pt-3">
+    <!-- <div class="row">
+        <div class=" company_logo col-md-3">
+            <div class="company_logo">
+                <img src="./assets/img/faces/Tech.jpg" alt="">
+            </div>
+        </div>
+        <div class="company_info col-md-6 text-left">
+            <h2 class="company_name">{{company.name}}</h2>
+            <p> <span>__<img src="./assets/img/faces/telephone.svg" alt="">__</span>&nbsp;&nbsp;(+84) {{company.phone}} </p>
+            <p> <span>__<img src="./assets/img/faces/emailsvg.svg" alt="">__</span>&nbsp;&nbsp;{{company.email}}</p>
+            <p> <span>__<img src="./assets/img/faces/location.svg" alt="">__</span>&nbsp;&nbsp;{{company.address}}</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="company_button">
+                <button type="submit">ADD REVIEW</button><br>
+                <button type="submit">FOLLOW</button>
+            </div>
+        </div>
+    </div> -->
+    <!-- End company_header -->
+    <!-- Company description -->
+    <div class="company_description container pt-3">
+        <div class="row company_container pt-4">
+            <!-- Company feature -->            
+            <div class="col-md-4 col-right">                
+                <div class="company_feature">                   
+                    <div class="company_panel_heading text-center">
+                        <div class="company_logo">
+                            <div class="">
+                                <img src="https://localhost:44371/img/company/{{company.avatar}}" alt="">
+                            </div>
+                        </div>
+                        <h3><b>{{company.name}}</b></h3>
+                        <label style="color: black;">{{company.title}}</label>
+                        <!-- <span>________</span><img src="./assets/img/faces/mail.png" alt=""><span>________</span> -->
+                    </div>
+                    <div class="company_panel_body">
+                        <div class="company_feature_review">
+                            <div class="review_title text-center ">
+                                <a [routerLink]="['/company/',company.id]"><b>"View our company page"</b></a>
+                            </div>
+                            
+                            <div class="paragraph">
+                                <p> <span><img src="./assets/img/faces/emailsvg.svg" alt=""></span>&nbsp;&nbsp;{{company.email}}</p>
+                                <p> <span><img src="./assets/img/faces/location.svg" alt=""></span>&nbsp;&nbsp;{{company.address}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-8 col-left">
+                <div class="company_about">
+                    <nav>
+                        <div style="display: none" class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                            <a style="display: none;" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Policy</a>
+                            <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div *ngIf="checker=='0'" class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="card-body">
+                                <!-- <div class="row col-md-12">
+                                    <div class="card-title">
+                                        <h2>{{job.title}}</h2>
+                                    </div>                                             
+                                </div>                                        -->
+                                <div class="table-responsive" >
+                                    <label style="font-size: large; color: black">You must login to continue!</label>
+                                    <br>
+                                    <a style="color: black" [routerLink]="['/login']">Click here to login.</a>
+                                </div>
+                            </div>                         
+                        </div>
+                        <div *ngIf="checker=='3' || checker=='1'" class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="card-body">
+                                <!-- <div class="row col-md-12">
+                                    <div class="card-title">
+                                        <h2>{{job.title}}</h2>
+                                    </div>                                             
+                                </div>                                        -->
+                                <div class="table-responsive" >
+                                    <label style="font-size: large; color: black">You can't apply this job!</label>
+                                    <br>
+                                    <!-- <a style="color: black" [routerLink]="['/login']">Click here to login.</a> -->
+                                </div>
+                            </div>                         
+                        </div>
+                        <div *ngIf="userCurrent != null && checker=='2'" class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">                                
+                                <div class="card-body">
+                                        <div class="row col-md-12">
+                                            <div class="card-title">
+                                                <h2 style="font-weight: bold; font-size: large">{{job.title}}</h2>
+                                            </div>                                             
+                                        </div>
+                                        <div class="table-responsive">
+                                            <form>                                                
+                                                <input style="display: none" class="form-control" name="postID"  [(ngModel)]="applyJob.postID" id="postID">
+                                                <div class="form-group">
+                                                    <label style="color: black; font-weight: bold">Your name</label>                                                    
+                                                    <label class="form-control">{{userCurrent.fullname}}</label>                                         
+                                                </div>
+                                                <div class="form-group">
+                                                    <label style="color: black; font-weight: bold">Cover letter</label>                                                    
+                                                    <textarea type="text" rows="5" maxlength="500" class="form-control" [(ngModel)]="applyJob.coverLetter" name="coverLetter" id="coverLetter" placeholder=""></textarea>
+                                                </div>
+                                               <div style="display: inline-block" class="form-group">
+                                                    <label style="color: black; font-weight: bold; padding-right: 50px;">Your CV</label>
+                                                    <label>
+                                                        <a style="color: black" (click)="openCV()" target="_blank" href="">
+                                                            {{cvName}}&nbsp;&nbsp;<i class="fa fa-eye"></i>                                                                   
+                                                        </a>
+                                                    </label>  
+                                               </div>
+                                               <div class="form-group">      
+                                                    <button (click) = "applyNewJob()" class="btn btn-danger">Apply</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>                         
+                        </div>                         
+                    </div>
+                </div>
+                <!-- pannel job -->
+                <div *ngIf="allJobByCompanyID?.length > 1" class="panel_job">
+                    <div class="panel_job_heading">
+                        <h4><b>JOBS</b></h4>
+                    </div>
+                    <div class="panel_body_job">
+                        <div *ngFor="let objJob of allJobByCompanyID" >
+                            <div *ngIf="job.id != objJob.id" class="job_content">
+                                    <div class="logo_company">
+                                            <div class="logo-wrapper">
+                                                <!-- <a href=""><img src="./assets/img/faces/Tech.jpg" alt=""></a> -->
+                                                <a [routerLink]="['/companyjob-detail',objJob.id]">
+                                                    <img class="block-20" src="https://localhost:44371/img/company/{{company.avatar}}" alt="">
+                                                </a>
+                                                <!-- <div class="">
+                                                    <img src="https://localhost:44371/img/company/{{company.avatar}}" alt="">
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div *ngIf="job.id != objJob.id"  class="job_description">
+                                            <div class="description">
+                                                <div class="details">
+                                                    <h4 class="title"><a [routerLink]="['/companyjob-detail',objJob.id]" >{{objJob.title}}</a></h4>
+                                                    <div class="infor">
+                                                        <b>Top reasons join with us</b>
+                                                        <p style="white-space: pre-line">{{objJob.reason}}</p>
+                                                    </div>
+                                                </div>
+            
+                                            </div>
+                                            <div class="job_key_list">
+                                                <div class="key_list">
+                                                    <a *ngFor="let skill of objJob.skills" [routerLink]="['/searchjobbyname',skill.name]"><span>{{skill.name}}</span></a>
+                                                    <a [routerLink]="['/searchjobbyname',objJob.jobType.name]"><span>{{objJob.jobType.name}}</span></a>
+                                                    <a [routerLink]="['/searchjobbyname',objJob.jobType.name]"><span>{{objJob.faculty.name}}</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end pannel job -->
+            </div>
+            <!-- ENd description -->
+
+
+
+        </div>
+    </div>
+</div>
+<div class="footter container-fluid pt-5">
+    <app-footer-user></app-footer-user>
+</div>
