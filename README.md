@@ -1,6 +1,6 @@
 # DUT JOB - An application connecting DUT's students and enterprises.
 ## Description
-DUT JOB is a website application for connecting DUT's students and enterprises. There are 4 actor in this system: guest, student, enterprise, admin.
+DUT JOB is a website application for connecting DUT's students and enterprises. There are 4 actors in this system: guest, student, enterprise, admin.
 The system used ASP.NET Core 2.1 framework for building API, Angular 7 and Bootstrap framework for developing the website for users. 
 ## Technologies and Tools
 - ASP.NET Core 2.1
