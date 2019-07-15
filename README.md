@@ -1,4 +1,7 @@
 # DUT JOB - An application connecting DUT's students and enterprises.
+## Description
+DUT JOB is a website application for connecting DUT's students and enterprises. There are 4 actor in this system: guest, student, enterprise, admin.
+The system used ASP.NET Core 2.1 framework for building API, Angular 7 and Bootstrap framework for developing the website for users. 
 ## Technologies and Tools
 - ASP.NET Core 2.1
 - Angular 7
@@ -20,6 +23,7 @@ Install the following:
  ```console
  Server=ServerName; Database=DatabseName; Trusted_Connection=True; MultipleActiveResultSets=true
  ```
++ Import database: dut_job.sql (use SQL Server)
 + Run project: Ctrl + F5
 ### Client
 #### Prerequisites
@@ -29,8 +33,12 @@ Install the following:
 - [Installing Angular CLI](https://angular.io/cli).
 #### Guide
 - Open the client project with Visual Code 2017
-- User teminal:
+- Use teminal:
 ``` console
 - npm install
 - npm start
 ```
+## Account
+- Student role: student@gmail.com/123456
+- Enterprise: company@gmail.com/123456
+- Admin: admin@gmail.com/123456
